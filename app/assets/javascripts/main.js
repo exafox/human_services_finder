@@ -10,6 +10,7 @@ var main = (function () {
 		busyManager.init();
 		busyManager.hide(); // temp - immediately hide
 		infoScreenManager.init(); // initialize help/info screen (in utility bar)
+		keyboardEventManager.init(); // intialize alert box manager
 		alertManager.init(); // intialize alert box manager
 	}
 
@@ -136,6 +137,42 @@ var main = (function () {
 		return infoScreenManager;
 	})();
 
+
+	//=================================================================================
+	// manages keyboard event mapping
+	var keyboardEventManager = (function(){
+		var keyboardEventManager = {};
+
+		// PRIVATE PROPERTIES
+		var resultsList; // Results list
+
+		// PUBLIC METHODS
+		keyboardEventManager.init = function()
+		{
+			resultsList = document.getElementById("results-list");
+			if (resultsList)
+			{
+				document.addEventListener("keydown", keyDownHandler, false)
+			}
+		}
+
+		// PRIVATE METHODS
+		function keyDownHandler(evt)
+		{
+			// arrow down pressed
+			if (evt.which == 40)
+			{
+				
+			}
+			// arrow up pressed
+			else if (evt.which == 38)
+			{
+				
+			}
+		}
+
+		return keyboardEventManager;
+	})();
 
 	//=================================================================================
 	// manages closing of alert box
